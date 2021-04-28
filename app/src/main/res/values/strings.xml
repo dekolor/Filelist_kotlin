@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Filelist</string>
+    <string name="username">Username</string>
+    <string name="passkey">Passkey</string>
+    <string name="save">Save</string>
+    <string name="please_wait">Please wait</string>
+    <string name="image_content_description">Image</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="tmdb_api">262819da173b64baa9a9f28fa8152dc9</string>
+    <string name="content_description_media">Movie poster</string>
+</resources>
