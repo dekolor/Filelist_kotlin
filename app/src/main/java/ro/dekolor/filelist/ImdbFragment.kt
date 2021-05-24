@@ -32,7 +32,7 @@ class ImdbFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        mSharedPreferences = this.getActivity()!!.getSharedPreferences(Constants.PREF_NAME, Context.MODE_PRIVATE)
+        mSharedPreferences = this.requireActivity().getSharedPreferences(Constants.PREF_NAME, Context.MODE_PRIVATE)
 
         getMovies()
     }

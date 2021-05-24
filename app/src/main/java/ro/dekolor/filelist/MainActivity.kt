@@ -3,9 +3,11 @@ package ro.dekolor.filelist
 
 import android.content.Context
 import android.content.SharedPreferences
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.ActionBar
 import androidx.fragment.app.Fragment
@@ -32,9 +34,9 @@ class MainActivity : AppCompatActivity() {
 
         mSharedPreferences = getSharedPreferences(Constants.PREF_NAME, Context.MODE_PRIVATE)
 
-        setSupportActionBar(toolbar_main)
-        toolbar = supportActionBar!!
-        toolbar.title = "Trending"
+        //setSupportActionBar(toolbar_main)
+        //toolbar = supportActionBar!!
+        //toolbar.title = "Trending"
         val imdbFragment = ImdbFragment.newInstance()
         openFragment(imdbFragment)
 
@@ -43,14 +45,44 @@ class MainActivity : AppCompatActivity() {
 
         getLatestTorrents(username, passkey)
 
-        navigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+        //navigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+        nav.setItemSelected(R.id.navigation_imdb)
+        nav.setOnItemSelectedListener { id ->
+            when(id) {
+                R.id.navigation_imdb -> {
+                    if(mSelectedFragment != 0) {
+                        //toolbar.title = "Trending"
+                        val imdbFragment = ImdbFragment.newInstance()
+                        openFragment(imdbFragment)
+                        mSelectedFragment = 0
+                    }
+                }
+                R.id.navigation_latest -> {
+                    if(mSelectedFragment != 1) {
+                        //toolbar.title = "Latest"
+                        val latestFragment = LatestFragment.newInstance()
+                        openFragment(latestFragment)
+                        mSelectedFragment = 1
+                    }
+                }
+                R.id.navigation_search -> {
+                    if(mSelectedFragment != 2) {
+                        //toolbar.title = "Search"
+                        val searchFragment = SearchFragment.newInstance()
+                        openFragment(searchFragment)
+                        mSelectedFragment = 2
+                    }
+                }
+            }
+        }
+
     }
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_imdb -> {
                 if(mSelectedFragment != 0) {
-                    toolbar.title = "Trending"
+                    //toolbar.title = "Trending"
                     val imdbFragment = ImdbFragment.newInstance()
                     openFragment(imdbFragment)
                     mSelectedFragment = 0
@@ -59,7 +91,7 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.navigation_latest -> {
                 if(mSelectedFragment != 1) {
-                    toolbar.title = "Latest"
+                    //toolbar.title = "Latest"
                     val latestFragment = LatestFragment.newInstance()
                     openFragment(latestFragment)
                     mSelectedFragment = 1
@@ -68,7 +100,7 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.navigation_search -> {
                 if(mSelectedFragment != 2) {
-                    toolbar.title = "Search"
+                    //toolbar.title = "Search"
                     val searchFragment = SearchFragment.newInstance()
                     openFragment(searchFragment)
                     mSelectedFragment = 2

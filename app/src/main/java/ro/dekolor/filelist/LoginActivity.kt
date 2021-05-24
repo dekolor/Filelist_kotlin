@@ -2,7 +2,9 @@ package ro.dekolor.filelist
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
@@ -21,6 +23,13 @@ class LoginActivity : BaseActivity() {
 
         btn_save.setOnClickListener {
             saveUser()
+        }
+
+        btn_website.setOnClickListener {
+            val url : String = "https://filelist.io/my.php"
+            val i : Intent = Intent(Intent.ACTION_VIEW)
+            i.setData(Uri.parse(url))
+            startActivity(i);
         }
     }
 

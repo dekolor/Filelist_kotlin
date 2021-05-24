@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:padding="5dp"
     android:layout_marginStart="16dp"
     android:layout_marginEnd="16dp"
     android:layout_width="150dp"
-    android:layout_height="150dp">
+    android:layout_height="wrap_content">
 
 
 
@@ -23,20 +23,21 @@
     <com.github.siyamed.shapeimageview.RoundedImageView
         android:id="@+id/movie_poster"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:siRadius="6dp"
+        android:layout_height="wrap_content"
+        app:siRadius="25dp"
         app:siSquare="true"/>
 
-    <com.github.mmin18.widget.RealtimeBlurView
-        android:id="@+id/textview_blurview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/movie_title"
-        android:layout_alignBottom="@+id/movie_title"
-        android:layout_alignStart="@+id/movie_title"
-        android:layout_alignLeft="@+id/movie_title"
-        android:layout_alignEnd="@+id/movie_title"
-        android:layout_alignRight="@+id/movie_title"/>
+<!--    <com.github.mmin18.widget.RealtimeBlurView-->
+<!--        android:id="@+id/textview_blurview"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignTop="@+id/movie_title"-->
+<!--        android:layout_alignBottom="@+id/movie_title"-->
+<!--        android:layout_alignStart="@+id/movie_title"-->
+<!--        android:layout_alignLeft="@+id/movie_title"-->
+<!--        android:layout_alignEnd="@+id/movie_title"-->
+<!--        android:layout_alignRight="@+id/movie_title"-->
+<!--        app:realtimeBlurRadius="25dp"/>-->
         <TextView
         android:id="@+id/movie_title"
         android:layout_width="match_parent"
@@ -92,4 +93,4 @@
 
 <!--    </com.google.android.material.card.MaterialCardView>-->
 
-</RelativeLayout>
+</LinearLayout>

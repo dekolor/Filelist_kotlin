@@ -11,8 +11,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:background="@android:color/white"
-        app:cardCornerRadius="8dp"
+        app:cardBackgroundColor="@color/secondary_background"
+        app:cardCornerRadius="12dp"
         app:cardElevation="3dp"
         app:cardUseCompatPadding="true"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -48,7 +48,7 @@
                     android:id="@+id/tvTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="#212121"
+                    android:textColor="#FFFFFF"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     tools:text="Name" />
@@ -57,7 +57,7 @@
                     android:id="@+id/tvDescription"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="#606060"
+                    android:textColor="#96A7AF"
                     android:textSize="14sp"
                     tools:text="Description" />
             </LinearLayout>

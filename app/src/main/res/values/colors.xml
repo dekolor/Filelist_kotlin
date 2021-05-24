@@ -13,4 +13,6 @@
     <color name="secondary_text_color">#9AA2AF</color>
     <color name="white_color">#FFFFFF</color>
     <color name="button_background_color">#63ace5</color>
+
+    <color name="secondary_background">#1C1C1E</color>
 </resources>

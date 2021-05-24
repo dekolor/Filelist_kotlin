@@ -10,4 +10,6 @@
 
     <string name="tmdb_api">262819da173b64baa9a9f28fa8152dc9</string>
     <string name="content_description_media">Movie poster</string>
+    <string name="open_website">Open website</string>
+    <string name="trending">Trending</string>
 </resources>
