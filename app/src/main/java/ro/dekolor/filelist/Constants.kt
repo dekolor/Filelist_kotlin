@@ -13,6 +13,7 @@ object Constants {
     const val USERNAME = "username"
     const val PASSKEY = "passkey"
     const val LATEST_TORRENT_DATA = "latest_torrent_data"
+    const val SEARCH_TORRENT_DATA = "search_torrent_data"
 
     fun isNetworkAvailable(context: Context): Boolean {
         val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager

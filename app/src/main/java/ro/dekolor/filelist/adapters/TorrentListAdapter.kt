@@ -1,21 +1,30 @@
 package ro.dekolor.filelist.adapters
 
+import LatestFragment
+import android.app.Activity
 import android.content.Context
+import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.View
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.item_torrent.view.*
+import kotlinx.android.synthetic.main.movie_row.view.*
 import ro.dekolor.filelist.R
+import ro.dekolor.filelist.TorrentDetail
 import ro.dekolor.filelist.models.Torrent
 
 open class TorrentListAdapter (
     private val context: Context,
-    private val list: ArrayList<Torrent>
+    private val list: ArrayList<Torrent>,
+    private val type: String
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private var onClickListener: OnClickListener? = null
+    private var onItemClick: ((Torrent) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return MyViewHolder(
@@ -41,6 +50,14 @@ open class TorrentListAdapter (
         if(holder is MyViewHolder) {
             holder.itemView.tvTitle.text = model.name
             holder.itemView.tvDescription.text = model.small_description
+            holder.itemView.torrent_id.text = model.id.toString()
+
+            holder.itemView.setOnClickListener { item ->
+                var intent = Intent(item.context, TorrentDetail::class.java)
+                intent.putExtra("torrent_id", model.id.toString())
+                intent.putExtra("type", type)
+                item.context.startActivity(intent)
+            }
 
             when(model.category) {
                 "Filme SD" -> {
@@ -240,6 +257,6 @@ open class TorrentListAdapter (
         fun onClick(position: Int, model: Torrent)
     }
 
-    private class MyViewHolder(view: View) : RecyclerView.ViewHolder(view)
+    inner class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {}
 
 }

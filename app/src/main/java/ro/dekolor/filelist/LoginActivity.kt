@@ -5,7 +5,6 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Toast
@@ -45,6 +44,7 @@ class LoginActivity : BaseActivity() {
             editor.apply()
             Toast.makeText(this, "Username and passkey are now saved, you can use the app", Toast.LENGTH_SHORT).show()
             setResult(Activity.RESULT_OK)
+            hideProgressDialog()
             finish()
         }
     }

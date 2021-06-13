@@ -1,4 +1,5 @@
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
@@ -8,10 +9,13 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.gson.Gson
+import kotlinx.android.synthetic.main.activity_torrent_detail.view.*
 import kotlinx.android.synthetic.main.fragment_search.*
 import retrofit.*
 import ro.dekolor.filelist.Constants
 import ro.dekolor.filelist.R
+import ro.dekolor.filelist.TorrentDetail
 import ro.dekolor.filelist.adapters.TorrentListAdapter
 import ro.dekolor.filelist.models.Torrent
 import ro.dekolor.filelist.network.FilelistService
@@ -54,9 +58,13 @@ class SearchFragment : Fragment() {
                 override fun onResponse(response: Response<List<Torrent>>?, retrofit: Retrofit?) {
                     if(response!!.isSuccess) {
                         var torrente: List<Torrent> = response.body()
+                        val torrenteJson = Gson().toJson(torrente)
+                        val editor = mSharedPreferences.edit()
+                        editor.putString(Constants.SEARCH_TORRENT_DATA, torrenteJson)
+                        editor.apply()
                         rv_torrent_search.apply {
                             layoutManager = LinearLayoutManager(activity)
-                            adapter = TorrentListAdapter(requireContext(), torrente as ArrayList<Torrent>)
+                            adapter = TorrentListAdapter(requireContext(), torrente as ArrayList<Torrent>, "search")
                         }
                     }else {
                         val rc = response.code()
