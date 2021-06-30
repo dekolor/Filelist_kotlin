@@ -22,7 +22,7 @@ class TorrentDetail : AppCompatActivity() {
         if(intent.hasExtra("torrent_id")) {
             if(intent.hasExtra("type") && intent.getStringExtra("type") == "latest") {
                 var torrenteJson = mSharedPreferences.getString(Constants.LATEST_TORRENT_DATA, "")
-                var torrentedata = Gson().fromJson(torrenteJson, Array<Torrent>::class.java).toList() as ArrayList<Torrent>
+                var torrentedata: ArrayList<Torrent> = ArrayList(Gson().fromJson(torrenteJson, Array<Torrent>::class.java).toList())
                 val torrentid = intent.getStringExtra("torrent_id").toString()
                 var torrent = torrentedata.filter { it.id.toString() == torrentid}.single()
                 torrent_name.text = torrent.name.toString()
@@ -38,7 +38,7 @@ class TorrentDetail : AppCompatActivity() {
             }
             else if(intent.hasExtra("type") && intent.getStringExtra("type") == "search") {
                 var torrenteJson = mSharedPreferences.getString(Constants.SEARCH_TORRENT_DATA, "")
-                var torrentedata = Gson().fromJson(torrenteJson, Array<Torrent>::class.java).toList() as ArrayList<Torrent>
+                var torrentedata: ArrayList<Torrent> = ArrayList(Gson().fromJson(torrenteJson, Array<Torrent>::class.java).toList())
                 val torrentid = intent.getStringExtra("torrent_id").toString()
                 var torrent = torrentedata.filter { it.id.toString() == torrentid}.single()
                 torrent_name.text = torrent.name.toString()
