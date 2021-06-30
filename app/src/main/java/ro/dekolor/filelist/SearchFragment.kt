@@ -32,6 +32,10 @@ class SearchFragment : Fragment() {
 
         mSharedPreferences = this.getActivity()!!.getSharedPreferences(Constants.PREF_NAME, Context.MODE_PRIVATE)
 
+        if(getActivity()?.getIntent()?.hasExtra("search_term")!!) {
+            getActivity()?.getIntent()?.getStringExtra("search_term")?.let { searchTorrent(it) }
+        }
+
         btn_search.setOnClickListener {
             searchTorrent(input_search.text.toString())
         }
