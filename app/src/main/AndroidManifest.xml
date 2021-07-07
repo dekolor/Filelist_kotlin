@@ -16,7 +16,8 @@
         <activity
             android:name=".TorrentDetail"
             android:screenOrientation="portrait"
-            android:theme="@style/CustomNoActionBarTheme"></activity>
+            android:theme="@style/AppTheme.NoActionBar"
+            ></activity>
         <activity
             android:name=".SplashActivity"
             android:screenOrientation="portrait"
